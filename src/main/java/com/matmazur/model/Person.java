@@ -1,6 +1,7 @@
 package com.matmazur.model;
 
 import javax.persistence.*;
+import java.util.Locale;
 
 @Entity
 public class Person {
@@ -13,6 +14,9 @@ public class Person {
     private String surname;
     private Integer age;
 
+    public static Builder builder() {
+        return new Builder();
+    }
 
     public Person(String name, String surname, Integer age) {
         this.name = name;
@@ -31,30 +35,6 @@ public class Person {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
     @Override
     public String toString() {
         return "Person{" +
@@ -63,5 +43,31 @@ public class Person {
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    public static class Builder {
+
+        private String name;
+        private String surname;
+        private Integer age;
+
+        public Builder withName(String name) {
+            this.name = name;
+            return new Builder();
+        }
+
+        public Builder withSurname(String surname) {
+            this.surname = surname;
+            return new Builder();
+        }
+
+        public Builder withAge(Integer age) {
+            this.age = age;
+            return new Builder();
+        }
+
+        public Person build(){
+            return new Person(name,surname,age);
+        }
     }
 }

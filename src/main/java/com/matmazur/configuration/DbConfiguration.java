@@ -1,5 +1,6 @@
 package com.matmazur.configuration;
 
+import com.matmazur.repository.PersonRepository;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +20,7 @@ import java.util.Map;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories
+@EnableJpaRepositories(basePackageClasses = PersonRepository.class)
 public class DbConfiguration {
 
     @Bean
