@@ -53,17 +53,17 @@ public class Person {
 
         public Builder withName(String name) {
             this.name = name;
-            return new Builder();
+            return this;
         }
 
         public Builder withSurname(String surname) {
             this.surname = surname;
-            return new Builder();
+            return this;
         }
 
         public Builder withAge(Integer age) {
             this.age = age;
-            return new Builder();
+            return this;
         }
 
         public Person build(){

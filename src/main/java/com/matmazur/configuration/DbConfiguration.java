@@ -48,7 +48,7 @@ public class DbConfiguration {
     @Bean
     public DataSource createDS() {
         BasicDataSource ds = new BasicDataSource();
-        ds.setUrl("jdbc:mysql://localhost:3306/test?useSSL=false");
+        ds.setUrl("jdbc:mysql://localhost:3306/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
         ds.setUsername("root");
         ds.setPassword("pass");
         ds.setDriverClassName("com.mysql.jdbc.Driver");
